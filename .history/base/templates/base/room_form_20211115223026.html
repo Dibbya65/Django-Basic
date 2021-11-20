@@ -1,0 +1,20 @@
+{% extends 'layouts/master.html' %}
+{% block title %}Room Form{% endblock title %}
+{% block content %}
+<div>
+
+    <form method="POST" action="{% url 'create-room' %}">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Submit" />
+    </form>
+</div>
+<div>
+
+    <form method="POST" action="{% url 'create-room' %}">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Register" />
+    </form>
+</div>
+{% endblock content %}

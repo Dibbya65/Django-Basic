@@ -1,0 +1,29 @@
+from django.db import models
+
+# Create your models here.
+
+# team model
+
+
+class Team(models.Model):
+    name = models.CharField(max_length=50)
+    position = models.CharField(max_length=50)
+    description = models.TextField(null=True, blank=True)
+    Active = 'Active'
+    Deactive = 'Deactive'
+    STATUS_CHOICE = ((Active, Active), (Deactive, Deactive))
+    status = models.CharField(
+        max_length=50, choices=STATUS_CHOICE, default=Deactive)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    # string representation
+    def __str__(self):
+        return self.name
+
+# team portfolio
+
+
+class Portfolio(models.Model):
+    team = models.ForeignKey(Team, on_delete=models.CASCADE)
+    image = models.ImageField()

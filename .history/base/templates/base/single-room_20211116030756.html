@@ -1,0 +1,17 @@
+{% extends 'layouts/master.html' %}
+{% block title %}{{room.name}}{% endblock title %}
+{% block content %}
+<h3>{{ room.name}} </h3>
+<p>{{room.description}}</p>
+
+<div class="comment-wrapper">
+    <h3>Conversation</h3>
+    <hr>
+    {% for message in messages %}
+    <div>
+        <small>@{{ message.user }}  {{message.created_at}}</small>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock content %}

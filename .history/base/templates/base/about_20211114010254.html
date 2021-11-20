@@ -1,0 +1,17 @@
+{% extends "layouts/master.html" %} 
+
+{% block title %} About Us {% endblock title %}
+
+{% block content %}
+<h1>This is a about page</h1>
+{%if teams %}
+{%for team in teams %}
+
+<a href="{% url 'about' room.id %}">{{ team.name}}</a><br>
+
+{%endfor%}
+{%else%}
+<p>No teams</p>
+{%endif%}
+{% endblock content %}
+

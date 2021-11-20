@@ -1,0 +1,6 @@
+{% extends 'layouts/master.html' %}
+{% block title %}{{team.name}}{% endblock title %}
+{% block content %}
+<h3 >Hello I am {{ team.name}} ({{team.position}}) </h3>
+<p>{{team.description}}</p>
+{% endblock content %}

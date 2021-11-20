@@ -1,0 +1,7 @@
+{% extends 'layouts/master.html' %}
+{% block content %}
+<form action="" method="POST">
+    {% csrf_token %}
+    <p>Are you sure?</p>
+</form>
+{% endblock content %}

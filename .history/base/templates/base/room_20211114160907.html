@@ -1,0 +1,21 @@
+{% extends "layouts/master.html" %} 
+
+{% block title %} Welcome to Room {% endblock title %}
+
+{% block content %}
+<section style="padding:50px;">
+
+{%if rooms %}
+<div style="display:flex;justify-content:center;align-items:center;">
+<div style="width:50%;display:flex;justify-content:space-between;flex-wrap:wrap;background-color:gray;padding:30px;">
+{%for room in rooms %}
+    <a href="{% url 'room-detail' room.id %}" style="margin-bottom:10px;">{{ room.name}}</a>
+{%endfor%}
+</div>
+</div>
+{%else%}
+<p>No rooms</p>
+{%endif%}
+</section>
+{% endblock content %}
+

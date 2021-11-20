@@ -1,0 +1,22 @@
+{% extends "layouts/master.html" %} 
+
+{% block title %} About Us {% endblock title %}
+
+{% block content %}
+<section style="padding:50px;">
+<h3 style="text-align:center">{{about_page_title}}</h3>
+<p style="text-align:justify">{{about_page_description}}</p>
+{%if teams %}
+<div style="display:flex;justify-content:center;align-items:center;">
+<div style="width:50%;display:flex;justify-content:space-between;flex-wrap:wrap;background-color:gray;padding:30px;">
+{%for team in teams %}
+    <a href="{% url 'about-detail' team.id %}" style="margin-bottom:10px;">{{ team.name}}</a>
+{%endfor%}
+</div>
+</div>
+{%else%}
+<p>No teams</p>
+{%endif%}
+</section>
+{% endblock content %}
+
